@@ -8,7 +8,7 @@
   },
   "keywords": ["wechat", "alipay", "pay"],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "xml2js": "^0.4.19"
   }
