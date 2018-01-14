@@ -1,6 +1,12 @@
 ## 提示
 > 微信相关还未完成，敬请关注  
 
+[![npm](https://img.shields.io/npm/v/cn-pay.svg?style=flat-square)](https://www.npmjs.com/package/cn-pay)
+[![npm](https://img.shields.io/npm/dt/cn-pay.svg?style=flat-square)](https://www.npmjs.com/package/cn-pay)
+[![taonpm](https://npm.taobao.org/badge/v/cn-pay.svg)](https://npm.taobao.org/package/cn-pay)
+[![license](https://img.shields.io/github/license/shmy/cn-pay.svg?style=flat-square)](https://github.com/shmy/cn-pay/blob/master/LICENSE.md)
+[![GitHub stars](https://img.shields.io/github/stars/shmy/cn-pay.svg?style=social&label=Star)](https://github.com/shmy/cn-pay)  
+
 ## 进度
 ### 支付宝
 + 电脑网页支付 -ok
