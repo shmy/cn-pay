@@ -8,7 +8,7 @@
 ## 支付宝
 ### 初始化实例
 ```javascript
-const Pay = require('pay')
+const Pay = require('cn-pay')
 const config = {
   app_id: 'app_id', // appid
   private_key: 'private_key', // 商户私钥
