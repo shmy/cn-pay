@@ -54,6 +54,6 @@ npm install cn-pay --save # or yarn add cn-pay
 | InvalidSignException | 表示验签失败。 |
 
 ## 使用
-[支付宝支付](alipay.md)  
+🔥[支付宝支付](alipay.md)  
 
-[微信支付](wechat.md)
+⛄[微信支付](wechat.md)

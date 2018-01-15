@@ -145,7 +145,7 @@ const result = await alipay.scan(order) // 此方法返回Promise
 ```
 ##### 返回
 成功时`result`返回类似以下数据：
-```json
+```javascript
 {
   code: '10000',
   msg: 'Success',

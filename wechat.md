@@ -32,7 +32,7 @@ const result = await wechat.mp(order) // 此方法返回Promise
 ```
 ##### 成功返回
 成功后`result`的值为类似以下结果：
-```json
+```javascript
 { 
   appId: 'wx1c198f2cad228bee',
   package: 'prepay_id=wx20180115094744ab552e649c0025010603',
@@ -85,7 +85,7 @@ const result = await wechat.app(order) // 此方法返回Promise
 ```
 ##### 成功返回
 成功后`result`的值为类似以下结果：
-```json
+```javascript
 { 
   appid: 'wx1c198g4ad228bee',
   partnerid: '1460444802',
