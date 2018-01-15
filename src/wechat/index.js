@@ -7,9 +7,7 @@ const methods = [
   'pos',
   'scan',
   'miniapp',
-  'transfer',
-  'redpack',
-  'groupRedpack',
+  'transfer'
 ]
 methods.forEach(name => Gateways[`${name}Gateway`] = require(`./gateways/${name}.gateway`))
 
