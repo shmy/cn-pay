@@ -38,8 +38,7 @@ module.exports = class Util {
         path,
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-          'Content-Length': Buffer.byteLength(data)
+          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         }
       }
       const req = request(options, res => {

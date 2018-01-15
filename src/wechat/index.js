@@ -39,6 +39,7 @@ class Wechat {
   }
 
   verify(body, sign) {
+    body = typeof body === 'string' ? util.parseXML(body) : body
     sign = sign || body.sign
     if (body.sign) {
       delete body.sign

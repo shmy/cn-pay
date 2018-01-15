@@ -21,8 +21,7 @@ class Util {
         protocol: 'https:',
         method: 'POST',
         headers: {
-          'Content-Type': 'application/xml; charset=utf-8',
-          // 'Content-Length': Buffer.byteLength(data)
+          'Content-Type': 'application/xml; charset=utf-8'
         }
       }
       const req = request(options, res => {
