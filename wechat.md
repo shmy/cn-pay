@@ -197,3 +197,21 @@ const result = await wechat.transfer(order) // 此方法返回Promise
 所有订单配置参数和官方无任何差别，兼容所有功能，所有参数请[参考这里](https://pay.weixin.qq.com/wiki/doc/api/tools/mch_pay.php?chapter=14_2)，查看「请求参数」一栏。
 
 --------------------
+
+
+### 异步通知的验签
+#### 例子
+```javascript
+app.post('/notify', (req, res) => {
+  if (wechat.verify(req.body)) { // 一句话验签，就这么简单
+    console.log('微信支付异步验签成功：')
+    // 业务逻辑
+    res.send(wechat.success()) // 可以调用success或fail方法 返回结果
+  } else {
+    console.log('微信支付异步验签失败：')
+    res.send(wechat.fail('验签失败'))
+  }
+})
+```
+
+--------------------

@@ -37,6 +37,20 @@ class Wechat {
       // sign: '',
     }
   }
+
+  verify(body, sign) {
+    sign = sign || body.sign
+    if (body.sign) {
+      delete body.sign
+    }
+    return sign === util.generateSign(body, this.config.key)
+  }
+  success() {
+    return '<xml><return_code>SUCCESS</return_code><return_msg>OK</return_msg></xml>'
+  }
+  fail(msg = 'error') {
+    return `<xml><return_code>FAIL</return_code><return_msg><![CDATA[${msg}]]></return_msg></xml>`
+  }
 }
 
 function __call(name, params) {
