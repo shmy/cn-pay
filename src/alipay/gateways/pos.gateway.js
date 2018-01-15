@@ -7,9 +7,13 @@ module.exports = class {
   pay(endpoint, payload) {
     payload.method = this.getMethod()
     payload.biz_content.product_code = this.getProductCode()
+    payload.biz_content.scene = this.getScene()
     payload.biz_content = JSON.stringify(payload.biz_content)
     payload.sign = util.generateSign(payload, this.config.private_key)
     return util.request(endpoint, payload, this.config.public_key)
+  }
+  getScene() {
+    return 'bar_code'
   }
   getMethod() {
     return 'alipay.trade.pay'

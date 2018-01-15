@@ -114,7 +114,7 @@ app_id=2016080200151484&notify_url=http%3A%2F%2Fshmy.free.ngrok.cc%2Fnotify&retu
 
 ------------------
 
-#### 四、刷卡支付
+#### 四、刷卡/条码支付
 ##### 例子
 ```javascript
 const order = {
@@ -126,6 +126,45 @@ const order = {
 const result = await alipay.pos(order) // 此方法返回Promise
 
 ```
+##### 返回
+成功时`result`返回类似以下数据：
+```javascript
+ {
+  code: '10000',
+  msg: 'Success',
+  buyer_logon_id: 'rlq***@sandbox.com',
+  buyer_pay_amount: '1.00',
+  buyer_user_id: '2088102171352233',
+  buyer_user_type: 'PRIVATE',
+  fund_bill_list: [ { amount: '1.00', fund_channel: 'ALIPAYACCOUNT' } ],
+  gmt_payment: '2018-01-15 13:21:24',
+  invoice_amount: '1.00',
+  out_trade_no: '1515993679354',
+  point_amount: '0.00',
+  receipt_amount: '1.00',
+  total_amount: '1.00',
+  trade_no: '2018011521001004230200245643'
+}
+```
+本接口有可能返回`10003`代码，代表等待用户付款中，此时返回如下：
+```javascript
+{ 
+  code: '10003',
+  msg: ' order success pay inprocess',
+  buyer_logon_id: 'rlq***@sandbox.com',
+  buyer_pay_amount: '0.00',
+  buyer_user_id: '2088102171352233',
+  buyer_user_type: 'PRIVATE',
+  invoice_amount: '0.00',
+  out_trade_no: '1515993611620',
+  point_amount: '0.00',
+  receipt_amount: '0.00',
+  total_amount: '10000.00',
+  trade_no: '2018011521001004230200245782',
+}
+
+```
+
 ##### 订单配置参数  
 **所有订单配置中，客观参数均不用配置，扩展包已经为大家自动处理了，比如，`product_code` 等参数。**  
 所有订单配置参数和官方无任何差别，兼容所有功能，所有参数请[参考这里](https://docs.open.alipay.com/api_1/alipay.trade.pay)，查看「请求参数」一栏。

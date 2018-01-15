@@ -52,7 +52,7 @@ module.exports = class Util {
             resolve(JSON.parse(data))
           } catch (error) {
             error.message = 'Cannot resolve the interface returned data'
-            reject(error)            
+            reject(error)
           }
         })
       })
@@ -73,7 +73,7 @@ module.exports = class Util {
           if (!Util.verifySign(data, public_key, sign, true)) {
             return reject(new InvalidSignException('验签失败', sign))
           }
-          if (data.code && data.code === '10000') {
+          if (data.code && (data.code === '10003' || data.code === '10000')) {
             return resolve(data)
           }
           return reject(new GatewayException(data.sub_msg || data.msg, data))
