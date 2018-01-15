@@ -7,10 +7,9 @@ module.exports = class {
   pay(payload) {
     payload.appid = this.getAppId()
     payload.trade_type = this.getTradeType()
-    // payload.spbill_create_ip = '192.168.1.1'
     payload.sign = util.generateSign(payload, this.config.key)
     return new Promise((resolve, reject) => {
-      util.request('/pay/unifiedorder', payload)
+      util.request('/pay/unifiedorder', payload, this.config.key)
       .then(data => resolve(this.getOutPut(data)))
       .catch(reject)
     })

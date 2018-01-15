@@ -10,8 +10,8 @@ const config = {
   mch_id: 'mch_id', // 商户Id
   key: 'key', // 商户密钥
   notify_url: 'notify_url', // 通知地址
-  return_url: 'return_url' // 跳转地址
- 
+  return_url: 'return_url', // 跳转地址
+  pfx: fs.readFileSync('<location-of-your-apiclient-cert.p12>') // 可选, 退款等情况时需要用到
 }
 const wechat = Pay.wechat(config)
 ```
@@ -63,7 +63,7 @@ const result = await wechat.wap(order) // 此方法返回Promise
 ##### 成功返回
 成功后`result`的值为类似以下结果：
 ```text
-https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx2016121516420242444321ca0631331346&package=1405458241
+https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx2016121516420242444321ca0631331346&package=1405458241&redirect_url=return_url
 ```
 ##### 订单配置参数  
 **所有订单配置中，客观参数均不用配置，扩展包已经为大家自动处理了，比如，`trade_type`, `appid`, `sign` 等参数。**  
@@ -198,6 +198,70 @@ const result = await wechat.transfer(order) // 此方法返回Promise
 
 --------------------
 
+### 订单退款
+#### 例子
+```javascript
+const order = {
+  out_trade_no: '1514027114',
+  out_refund_no: '1516000270202',
+  total_fee: 1, // 单位元
+  refund_fee: 1, // 单位元
+  refund_desc: '退款测试'
+}
+const result = await wechat.refund(order) // 此方法返回Promise
+
+// APP/小程序退款
+// 如果您需要退款 APP/小程序 的订单，请传入第二个字符串参数APP 或 MINIAPP
+const result = await wechat.refund(order, 'APP') // APP订单 此方法返回Promise
+const result = await wechat.refund(order, 'MINIAPP') // 小程序订单 此方法返回Promise
+```
+#### 订单配置参数
+所有订单配置参数和官方无任何差别，兼容所有功能，所有参数请[参考这里](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4)，查看「请求参数」一栏。
+
+----------------
+
+### 查询订单
+#### 例子
+```javascript
+const order = {
+  out_trade_no: '1514027114'
+}
+// 或者直接传递字符串
+// const order = '1514027114'
+const result = await wechat.find(order) // 此方法返回Promise
+
+// APP/小程序查询
+// 如果您需要查询 APP/小程序 的订单，请传入第二个字符串参数APP 或 MINIAPP
+const result = await wechat.find(order, 'APP') // APP订单 此方法返回Promise
+const result = await wechat.find(order, 'MINIAPP') // 小程序订单 此方法返回Promise
+```
+#### 订单配置参数
+所有订单配置参数和官方无任何差别，兼容所有功能，所有参数请[参考这里](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_2)，查看「请求参数」一栏。
+
+-------------------
+
+### 取消订单
+**微信官方无此 `API`，请调用 `close` 关闭订单。**
+
+### 关闭订单
+#### 例子
+```javascript
+const order = {
+  out_trade_no: '1514027114'
+}
+// 或者直接传递字符串
+// const order = '1514027114'
+const result = await wechat.close(order) // 此方法返回Promise
+
+// APP/小程序关闭
+// 如果您需要关闭 APP/小程序 的订单，请传入第二个字符串参数APP 或 MINIAPP
+const result = await wechat.close(order, 'APP') // APP订单 此方法返回Promise
+const result = await wechat.close(order, 'MINIAPP') // 小程序订单 此方法返回Promise
+```
+#### 订单配置参数
+所有订单配置参数和官方无任何差别，兼容所有功能，所有参数请[参考这里](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_3)，查看「请求参数」一栏。
+
+--------------------
 
 ### 异步通知的验签
 #### 例子

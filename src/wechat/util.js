@@ -10,14 +10,16 @@ class Util {
   static createNonceStr(length = 15) {
     return Math.random().toString(36).substr(2, length)
   }
-  static request(url, data) {
-    url = 'https://apihk.mch.weixin.qq.com' + url
+  static request(url, data, key, pfx, passphrase) {
+    url = 'https://api.mch.weixin.qq.com' + url
     data = Util.buildObject(data)
     return new Promise((resolve, reject) => {
       const { hostname, path } = parse(url)
       const options = {
         hostname,
         path,
+        pfx,
+        passphrase,
         protocol: 'https:',
         method: 'POST',
         headers: {
@@ -33,8 +35,13 @@ class Util {
         res.on('end', () => {
           Util.parseXML(data)
             .then(data => {
-              if (data.return_code !== 'SUCCESS') {
-                return reject(new GatewayException(data.return_msg || 'response error', data))
+              if (data.return_code !== 'SUCCESS' || data.result_code !== 'SUCCESS') {
+                return reject(new GatewayException(data.err_code_des || data.return_msg || '', data))
+              }
+              const sign = data.sign
+              delete data.sign
+              if (Util.generateSign(data, key) !== sign) {
+                return reject(new InvalidSignException('验签失败', data))
               }
               return resolve(data)
             })

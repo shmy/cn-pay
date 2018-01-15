@@ -71,7 +71,7 @@ module.exports = class Util {
           data = data[payload.method.replace(/\./g, '_') + '_response']
           // 开始验签
           if (!Util.verifySign(data, public_key, sign, true)) {
-            return reject(new InvalidSignException('验签失败', sign))
+            return reject(new InvalidSignException('验签失败', data))
           }
           if (data.code && (data.code === '10003' || data.code === '10000')) {
             return resolve(data)

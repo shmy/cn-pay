@@ -4,8 +4,8 @@
 const Pay = require('cn-pay')
 const config = {
   app_id: 'app_id', // appid
-  private_key: 'private_key', // 商户私钥
-  public_key: 'public_key', // 支付宝公钥
+  private_key: 'private_key', // 商户私钥 注意：此处不是文件路径，一定要是文件内容
+  public_key: 'public_key', // 支付宝公钥 注意：此处不是文件路径，一定要是文件内容
   notify_url: 'notify_url', // 通知地址
   return_url: 'return_url', // 跳转地址
   dev: false // 设置为true 将启用开发环境的支付宝网关
@@ -129,7 +129,7 @@ const result = await alipay.pos(order) // 此方法返回Promise
 ##### 返回
 成功时`result`返回类似以下数据：
 ```javascript
- {
+{
   code: '10000',
   msg: 'Success',
   buyer_logon_id: 'rlq***@sandbox.com',
