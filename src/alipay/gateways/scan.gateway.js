@@ -1,13 +1,15 @@
-const PosGateway = require('./pos.gateway')
+'use strict';
+
+const PosGateway = require('./pos.gateway');
 
 module.exports = class extends PosGateway {
   getScene() {
-    return ''
+    return '';
   }
   getMethod() {
-    return 'alipay.trade.precreate'
+    return 'alipay.trade.precreate';
   }
   getProductCode() {
-    return ''
+    return '';
   }
-}
+};

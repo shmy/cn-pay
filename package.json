@@ -4,7 +4,8 @@
   "description": "a alipay wechat pay lib",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src --fix"
   },
   "keywords": [
     "wechat",
@@ -16,5 +17,9 @@
   "license": "MIT",
   "dependencies": {
     "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-egg": "^6.0.0"
   }
 }

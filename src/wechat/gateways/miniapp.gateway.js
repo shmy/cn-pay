@@ -1,10 +1,12 @@
-const mpGateway = require('./mp.gateway')
+'use strict';
 
-module.exports = class extends mpGateway{
-  getAppId () {
-    return this.config.miniapp_id
+const mpGateway = require('./mp.gateway');
+
+module.exports = class extends mpGateway {
+  getAppId() {
+    return this.config.miniapp_id;
   }
-  getTradeType () {
-    return 'JSAPI'
+  getTradeType() {
+    return 'JSAPI';
   }
-}
+};

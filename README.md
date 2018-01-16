@@ -1,5 +1,5 @@
 ## 提示
-> 微信相关还未完成，敬请关注  
+> 微信相关还未完成，敬请关注
 
 [![npm](https://img.shields.io/npm/v/cn-pay.svg?style=flat-square)](https://www.npmjs.com/package/cn-pay)
 [![npm](https://img.shields.io/npm/dt/cn-pay.svg?style=flat-square)](https://www.npmjs.com/package/cn-pay)
@@ -8,7 +8,11 @@
 [![cnpm](https://cnpmjs.org/badge/v/cn-pay.svg)](https://cnpmjs.org/package/cn-pay)
 [![cnpm](https://cnpmjs.org/badge/d/cn-pay.svg)](https://cnpmjs.org/package/cn-pay)
 [![license](https://img.shields.io/github/license/shmy/cn-pay.svg?style=flat-square)](https://github.com/shmy/cn-pay/blob/master/LICENSE.md)
-[![GitHub stars](https://img.shields.io/github/stars/shmy/cn-pay.svg?style=social&label=Star)](https://github.com/shmy/cn-pay)  
+[![GitHub stars](https://img.shields.io/github/stars/shmy/cn-pay.svg?style=social&label=Star)](https://github.com/shmy/cn-pay)
+[![GitHub downloads](https://img.shields.io/github/downloads/shmy/cn-pay/total.svg)](https://github.com/shmy/cn-pay)
+
+## 环境要求
+> 警告：本模块大量采用`ES6`语法编写，最低支持到**Node.js v6.0.0**
 
 ## 进度
 ### 支付宝
@@ -30,7 +34,7 @@
 + 公众号网页支付 -ok
 + 手机网页(h5)支付 -ok
 + 手机App支付 -ok
-+ 小程序支付 
++ 小程序支付
 + 刷卡支付 -ok
 + 扫码支付 -ok
 + 账户转账
@@ -57,6 +61,6 @@ npm install cn-pay --save # or yarn add cn-pay
 | InvalidSignException | 表示验签失败。 |
 
 ## 使用
-🔥[支付宝支付](alipay.md)  
+🔥[支付宝支付](alipay.md)
 
 ⛄[微信支付](wechat.md)
