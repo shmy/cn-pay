@@ -117,8 +117,8 @@ const result = await wechat.miniapp(order) // 此方法返回Promise
 ```
 ##### 成功返回
 成功后`result`的值为类似以下结果：
-```json
-//
+```javascript
+// 未实现
 ```
 ##### 订单配置参数  
 **所有订单配置中，客观参数均不用配置，扩展包已经为大家自动处理了，比如，`trade_type`, `appid`, `sign` 等参数。**  
@@ -126,7 +126,7 @@ const result = await wechat.miniapp(order) // 此方法返回Promise
 
 --------------------
 
-#### 五、刷卡支付（未实现）
+#### 五、刷卡/条码支付
 ##### 例子
 ```javascript
 const order = {
@@ -140,9 +140,20 @@ const order = {
 const result = await wechat.pos(order) // 此方法返回Promise
 ```
 ##### 成功返回
-成功后`result`的值为类似以下结果：
-```json
-//
+成功后`result`的值为类似以下结果：  
+请根据`err_code` = `USERPAYING`，做定时查询，以确保真正支付成功
+```javascript
+{
+  return_code: 'SUCCESS',
+  return_msg: 'OK',
+  appid: 'wx1c298f2cfg928bee',
+  mch_id: '1483272902',
+  nonce_str: 'F05AC0JnYL9QYX50',
+  sign: 'F0B7082E9E57BFB590D58CE7C0B3E25A',
+  result_code: 'FAIL',
+  err_code: 'USERPAYING',
+  err_code_des: '需要用户输入支付密码'
+}
 ```
 ##### 订单配置参数  
 **所有订单配置中，客观参数均不用配置，扩展包已经为大家自动处理了，比如，`trade_type`, `appid`, `sign` 等参数。**  
@@ -150,7 +161,7 @@ const result = await wechat.pos(order) // 此方法返回Promise
 
 --------------------
 
-#### 六、扫码支付（未实现）
+#### 六、扫码支付
 ##### 例子
 ```javascript
 const order = {
@@ -164,8 +175,18 @@ const result = await wechat.scan(order) // 此方法返回Promise
 ```
 ##### 成功返回
 成功后`result`的值为类似以下结果：
-```json
-//
+```javascript
+{ 
+  return_code: 'SUCCESS',
+  return_msg: 'OK',
+  appid: 'wx1c298f2cfg928bee',
+  mch_id: '1483272902',
+  nonce_str: 'zqdbp8QhMA7lSpfP',
+  result_code: 'SUCCESS',
+  prepay_id: 'wx20180116101212517d3471fa0624769084',
+  trade_type: 'NATIVE',
+  code_url: 'weixin://wxpay/bizpayurl?pr=JxsXSLO'
+}
 ```
 ##### 订单配置参数  
 **所有订单配置中，客观参数均不用配置，扩展包已经为大家自动处理了，比如，`trade_type`, `appid`, `sign` 等参数。**  
@@ -189,8 +210,8 @@ const result = await wechat.transfer(order) // 此方法返回Promise
 ```
 ##### 成功返回
 成功后`result`的值为类似以下结果：
-```json
-//
+```javascript
+// 未实现
 ```
 ##### 订单配置参数  
 **所有订单配置中，客观参数均不用配置，扩展包已经为大家自动处理了，比如，`trade_type`, `appid`, `sign` 等参数。**  

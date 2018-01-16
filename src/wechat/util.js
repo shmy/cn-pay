@@ -35,11 +35,10 @@ class Util {
         res.on('end', () => {
           Util.parseXML(data)
             .then(data => {
-              if (data.return_code !== 'SUCCESS' || data.result_code !== 'SUCCESS') {
+              if (data.return_code !== 'SUCCESS' || (data.result_code !== 'SUCCESS' && data.err_code !== 'USERPAYING')) {
                 return reject(new GatewayException(data.err_code_des || data.return_msg || '', data))
               }
               const sign = data.sign
-              delete data.sign
               if (Util.generateSign(data, key) !== sign) {
                 return reject(new InvalidSignException('验签失败', data))
               }
@@ -85,6 +84,9 @@ class Util {
   }
   // 签名
   static generateSign(payload, key) {
+    if (payload.sign) {
+      delete payload.sign
+    }
     const dispose = {}
     // 第一步： 按 key 值进行自然排序
     Object.keys(payload).sort().forEach(key => dispose[key] = payload[key])

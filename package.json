@@ -1,13 +1,18 @@
 {
   "name": "cn-pay",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "a alipay wechat pay lib",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["wechat", "alipay", "pay"],
-  "author": "",
+  "keywords": [
+    "wechat",
+    "alipay",
+    "pay"
+  ],
+  "author": "shmy",
+  "homepage": "https://github.com/shmy/cn-pay",
   "license": "MIT",
   "dependencies": {
     "xml2js": "^0.4.19"

@@ -10,17 +10,17 @@ module.exports = class {
     payload.sign = util.generateSign(payload, this.config.key)
     return new Promise((resolve, reject) => {
       util.request('/pay/unifiedorder', payload, this.config.key)
-      .then(data => resolve(this.getOutPut(data)))
-      .catch(reject)
+        .then(data => resolve(this.getOutPut(data)))
+        .catch(reject)
     })
   }
-  getAppId () {
+  getAppId() {
     return this.config.app_id
   }
-  getTradeType () {
+  getTradeType() {
     return 'JSAPI'
   }
-  getOutPut (data) { 
+  getOutPut(data) {
     const output = {
       appId: data.appid,
       package: 'prepay_id=' + data.prepay_id,
