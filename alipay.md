@@ -21,7 +21,7 @@ const order = {
   total_amount: 0.01, // 单位 元
   subject: '测试支付'
 }
-const result = await alipay.web(order) // 此方法返回Promise
+const { html, payload, endpoint } = await alipay.web(order) // 此方法返回Promise
 
 ```
 ##### 返回
