@@ -4,6 +4,9 @@
 [![npm](https://img.shields.io/npm/v/cn-pay.svg?style=flat-square)](https://www.npmjs.com/package/cn-pay)
 [![npm](https://img.shields.io/npm/dt/cn-pay.svg?style=flat-square)](https://www.npmjs.com/package/cn-pay)
 [![taonpm](https://npm.taobao.org/badge/v/cn-pay.svg)](https://npm.taobao.org/package/cn-pay)
+[![taonpm](https://npm.taobao.org/badge/d/cn-pay.svg)](https://npm.taobao.org/package/cn-pay)
+[![cnpm](https://cnpmjs.org/badge/v/cn-pay.svg)](https://cnpmjs.org/package/cn-pay)
+[![cnpm](https://cnpmjs.org/badge/d/cn-pay.svg)](https://cnpmjs.org/package/cn-pay)
 [![license](https://img.shields.io/github/license/shmy/cn-pay.svg?style=flat-square)](https://github.com/shmy/cn-pay/blob/master/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/shmy/cn-pay.svg?style=social&label=Star)](https://github.com/shmy/cn-pay)  
 
