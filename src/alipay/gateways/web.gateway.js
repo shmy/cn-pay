@@ -11,8 +11,8 @@ module.exports = class {
     payload.biz_content.product_code = this.getProductCode();
     payload.biz_content = JSON.stringify(payload.biz_content);
     payload.sign = util.generateSign(payload, this.config.private_key);
-    const result = util.buildFormHTML(endpoint, payload);
-    return Promise.resolve(result);
+    const html = util.buildFormHTML(endpoint, payload);
+    return Promise.resolve({ html, payload, endpoint });
   }
   getMethod() {
     return 'alipay.trade.page.pay';
