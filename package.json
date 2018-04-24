@@ -1,6 +1,6 @@
 {
   "name": "cn-pay",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "a alipay wechat pay lib",
   "main": "index.js",
   "scripts": {
