@@ -91,7 +91,12 @@ class Util {
     }
     const dispose = {};
     // 第一步： 按 key 值进行自然排序
-    Object.keys(payload).sort().forEach(key => (dispose[key] = payload[key]));
+    Object.keys(payload).sort().forEach(key => {
+      // 去除空值 #1
+      if (payload[key]) {
+        dispose[key] = payload[key];
+      }
+    });
     // 第二步： 把对象转换为类似HTTP Query 参数 并去除URL转义符号
     let str = decodeURIComponent(stringify(dispose, '&', '='));
     // 第三步： 加入私钥字段进行MD5转码并大写

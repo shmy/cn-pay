@@ -3,3 +3,4 @@ npm-debug.log*
 /info/
 /test/
 todo.md
+.DS_Store
