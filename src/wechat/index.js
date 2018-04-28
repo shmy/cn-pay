@@ -65,10 +65,10 @@ class Wechat {
   }
   refund(order, type) {
     if (order.total_fee) {
-      order.total_fee *= 100;
+      order.total_fee = +(order.total_fee * 100).toFixed(2);
     }
     if (order.refund_fee) {
-      order.refund_fee *= 100;
+      order.refund_fee = +(order.refund_fee * 100).toFixed(2);
     }
 
     return this.__trade('/secapi/pay/refund', order, type, this.config.pfx, this.config.mch_id);
@@ -93,7 +93,7 @@ class Wechat {
 
 function __call(name, params) {
   // 转换成分
-  params.total_fee *= 100;
+  params.total_fee = +(params.total_fee * 100).toFixed(2);
   params.nonce_str = util.createNonceStr();
   const payload = Object.assign({}, this.payload, params);
   return new Gateways[`${name}Gateway`](this.config)
