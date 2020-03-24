@@ -44,9 +44,20 @@ class Wechat {
   }
 
   verify(body, sign) {
-    body = typeof body === 'string' ? util.parseXML(body) : body;
-    sign = sign || body.sign;
-    return sign === util.generateSign(body, this.config.key);
+    const that = this;
+    return new Promise(function(resolve, reject) {
+      Promise.resolve().then(function(){
+        if (typeof body === 'string'){
+          return util.parseXML(body);
+        }else {
+          return body;
+        }
+    }).then(function(body){
+        sign = sign || body.sign;
+        resolve(sign === util.generateSign(body, that.config.key));
+        return;
+      }).catch(reject);
+    });
   }
   success() {
     return '<xml><return_code>SUCCESS</return_code><return_msg>OK</return_msg></xml>';
